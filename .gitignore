@@ -1,3 +1,4 @@
+/.vscode/*
 data-store.json
 config.json
 /node_modules/*
