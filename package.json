@@ -1,0 +1,32 @@
+{
+  "name": "docbot",
+  "version": "1.0.0",
+  "description": "Discord bot for displaying YAMDBF documentation articles",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zajrik/docbot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "yamdbf",
+    "node",
+    "docs",
+    "documentation"
+  ],
+  "author": "Zackary Campbell <zajrik@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zajrik/docbot/issues"
+  },
+  "homepage": "https://github.com/zajrik/docbot#readme",
+  "dependencies": {
+    "request": "^2.75.0",
+    "request-promise": "^4.1.1",
+    "yamdbf": "^2.2.0"
+  }
+}
