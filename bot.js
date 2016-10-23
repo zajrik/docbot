@@ -17,7 +17,8 @@ const bot = new Bot({
 		'listgroups',
 		'version',
 		'setprefix',
-		// 'ping',
+		'ping',
+		'reload',
 		'help'
 	]
 })
