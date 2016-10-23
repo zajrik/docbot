@@ -1,7 +1,7 @@
 let Command = require('yamdbf').Command;
 var link = 'https://zajrik.github.io/yamdbf';
 
-exports.default = class Help extends Command
+exports.default = class Docs extends Command
 {
 	constructor(bot)
 	{
