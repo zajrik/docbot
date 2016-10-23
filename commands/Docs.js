@@ -32,7 +32,6 @@ exports.default = class Help extends Command
 			else
 			{
 				let entry = args[0].split('.').map(a => a.toLowerCase());
-				console.log(entry);
 				let className;
 				let result;
 				if (entry.length > 1)
@@ -54,7 +53,6 @@ exports.default = class Help extends Command
 					}
 					else
 					{
-						console.log('step 3');
 						end = result.functions.filter(a => a.name.toLowerCase() === entry[1])[0];
 						if (end) // eslint-disable-line
 						{
@@ -93,7 +91,7 @@ exports.default = class Help extends Command
 							+ `${result.functions ? `**Methods:**\n\`${result.functions
 								.map(a => `${a.name}()`).join('`, `')}\`\n\n` : ''}`
 							+ `**Docs:** ${link}/${result.name}.html\n\n`
-							+ `Use \`docs: ${result.name}.<property|method>\` for more information\``);
+							+ `Use \`docs: ${result.name}.<property|method>\` for more information`);
 					}
 					return message.channel.sendMessage(`Couldn't find entry: \`'${args[0]}'\``);
 				}
