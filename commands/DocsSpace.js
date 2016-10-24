@@ -1,6 +1,6 @@
 let Command = require('yamdbf').Command;
 
-exports.default = class Docs extends Command
+exports.default = class DocsSpace extends Command
 {
 	constructor(bot)
 	{
