@@ -22,6 +22,7 @@ exports.default = class Docs extends Command
 			{
 				return message.channel.sendMessage(`**Classes:**\n`
 					+ `\`${this.bot.docsLoader.docs.classes.map(a => a.name).join('`, `')}\`\n\n`
+					+ `**Typedefs:**\n\`${this.bot.docsLoader.docs.typedefs.map(a => a.name).join('`, `')}\`\n\n`
 					+ `Use \`'docs: <class>'\` for more information.`);
 			}
 			if (args[0] === 'reload')
@@ -29,7 +30,7 @@ exports.default = class Docs extends Command
 				return message.channel.sendMessage('Reloading docs...')
 					.then(msg => this.bot.docsLoader.loadDocs(msg));
 			}
-			return this.bot.docsLoader.fetchArticle(args[0])
+			return this.bot.docsLoader.fetchArticle(args.join(' '))
 				.then(res => message.channel.sendMessage(res))
 				.catch(err => message.channel.sendMessage(err));
 		}
