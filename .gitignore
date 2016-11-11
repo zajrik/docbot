@@ -1,11 +1,9 @@
-/.vscode/*
-data-store.json
-config.json
 /node_modules/*
 /bin/*
-guild-storage.json
-bot-storage.json
-npm-debug*
-bottest.js
 /pkg/*
 /storage/*
+/typings/*
+/.vscode/*
+config.json
+npm-debug*
+yarn*
