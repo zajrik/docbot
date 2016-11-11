@@ -10,8 +10,8 @@ export default class Property
 	public lower: string;
 	public description: string;
 	public memberOf: string;
-	public access: string;
-	public virtual: boolean;
+	public access?: string;
+	public virtual?: boolean;
 	public type: string;
 	public url: string;
 	public string: string;
@@ -20,8 +20,8 @@ export default class Property
 						description: string,
 						memberOf: string,
 						type: string,
-						access: string,
-						virtual: boolean)
+						access?: string,
+						virtual?: boolean)
 	{
 		this.name = name || '';
 		this.lower = name.toLowerCase();

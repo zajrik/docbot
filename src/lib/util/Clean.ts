@@ -12,5 +12,6 @@ export default function clean(text: string): string
 			.replace(/external:/g, '')
 			.replace(/\[[^\]]+\]/g, '')
 			.replace(/(.+)\.(<.+>)/g, '$1$2')
-			.replace(/\{@link ([^\}]+)\}/g, '`$1`');
+			.replace(/\{@link ([^\}]+)\}/g, '`$1`')
+			.replace(/<code>|<\/code>/g, '`');
 }

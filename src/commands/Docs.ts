@@ -27,8 +27,8 @@ export default class Docs extends Command
 		{
 			return message.channel.sendMessage(`**Classes:**\n`
 				+ `\`${(<DocBot> this.bot).docs.classes.map(a => a.name).join('`, `')}\`\n\n`
-				+ `**Typedefs:**\n\`${(<DocBot> this.bot).docs.typedefs.map(a => a.name).join('`, `') || 'TODO: Typedefs output'}\`\n\n`
-				+ `Use \`'docs: <class>[.property|method]'\` for more information.`);
+				+ `**Typedefs:**\n\`${(<DocBot> this.bot).docs.typedefs.map(a => a.name).join('`, `')}\`\n\n`
+				+ `Use \`'docs: <class|typedef>[.property|.method]'\` for more information.`);
 		}
 		if (args[0] === 'reload')
 		{

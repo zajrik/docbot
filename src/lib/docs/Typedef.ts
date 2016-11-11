@@ -26,7 +26,7 @@ export default class Typedef
 		this.url = this.url = `${Constants.endpoints.yamdbf}/global.html#${this.name}`;
 		this.string = `**${name}**\n\n`
 			+ `**Properties:**\n${properties.size > 0 ? properties.map(a =>
-				`<${a.type}> ${a.name}\n${a.description}`).join('\n\n') : 'none\n\n'}`
+				`\`<${a.type}> ${a.name}\`\n${a.description}`).join('\n\n') + '\n\n' : 'none\n\n'}`
 			+ `**Description:**\n${description}\n\n`
 			+ `**Docs:** ${this.url}`;
 	}
