@@ -1,5 +1,6 @@
 'use strict';
 import * as path from 'path';
+import { Command } from 'yamdbf';
 import DocBot from './lib/bot/DocBot';
 const config: any = require('./config.json');
 
@@ -18,19 +19,19 @@ const bot: DocBot = new DocBot({
 		'setprefix',
 		'ping',
 		'reload',
-		'help',
-		'eval'
+		'help'
 	]
 })
 .setDefaultSetting('prefix', '')
 .removeDefaultSetting('disabledGroups');
 
+const evalCommand: Command = bot.commands.get('eval');
+bot.commands.delete('eval');
+evalCommand.name = 'docs:eval';
+bot.commands.set('docs:eval', evalCommand);
+
 bot.docs.loadDocs()
 	.then(() => bot.start())
-	// .then(() => console.log(require('util').inspect(bot.docs.classes)))
-	// .then(() => console.log(bot.docs.properties.map(a => a.name)))
-	// .then(() => console.log(bot.docs.methods.map(a => a.name)))
-	// .then(() => console.log(bot.docs.all.get('bot.loadcommand').toString()))
 	.catch(console.error);
 
 bot.on('ready', () => console.log('\u0007'));

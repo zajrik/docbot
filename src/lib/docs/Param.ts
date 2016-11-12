@@ -29,7 +29,7 @@ export default class Param
 		this.defaultValue = defaultValue || '';
 		this.optional = optional || false;
 		this.nullable = nullable || '';
-		this.string = `\`<${this.type}> ${this.name}${defaultValue ? ` = ${defaultValue}` : ''}${optional ? ` (optional)` : ''}\`\n${this.description}\n`;
+		this.string = `\`<${type}> ${name}${defaultValue ? ` = ${defaultValue}` : ''}${optional ? ` (optional)` : ''}\`\n${description}\n`;
 	}
 
 	public toString(): string

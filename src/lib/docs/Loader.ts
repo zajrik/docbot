@@ -60,6 +60,23 @@ export default class Loader
 		this.typedefs.clear();
 		this.all.clear();
 
+		for (let typedef of docs.typedefs)
+		{
+			const name: string = typedef.name;
+			const description: string = clean(typedef.description);
+
+			let properties: Collection<string, Property> = new Collection<string, Property>();
+			typedef.properties.forEach(a =>
+			{
+				let property: Property = new Property(a.name, clean(a.description), name, clean(a.type));
+				properties.set(a.name, property);
+			});
+
+			let outTypedef: Typedef = new Typedef(name, properties, description);
+			this.typedefs.set(typedef.name, outTypedef);
+			this.all.set(typedef.name.toLowerCase(), outTypedef);
+		}
+
 		for (let defClass of docs.classes)
 		{
 			const name: string = defClass.name;
@@ -110,23 +127,6 @@ export default class Loader
 			const outClass: Class = new Class(name, description, parameters, properties, methods);
 			this.classes.set(defClass.name, outClass);
 			this.all.set(defClass.name.toLowerCase(), outClass);
-		}
-
-		for (let typedef of docs.typedefs)
-		{
-			const name: string = typedef.name;
-			const description: string = clean(typedef.description);
-
-			let properties: Collection<string, Property> = new Collection<string, Property>();
-			typedef.properties.forEach(a =>
-			{
-				let property: Property = new Property(a.name, clean(a.description), name, clean(a.type));
-				properties.set(a.name, property);
-			});
-
-			let outTypedef: Typedef = new Typedef(name, properties, description);
-			this.typedefs.set(typedef.name, outTypedef);
-			this.all.set(typedef.name.toLowerCase(), outTypedef);
 		}
 
 		console.log('Docs successfully loaded.');

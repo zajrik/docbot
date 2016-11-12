@@ -35,6 +35,10 @@ export default class Docs extends Command
 			return message.channel.sendMessage('Reloading docs...')
 				.then((msg: Message) => (<DocBot> this.bot).docs.loadDocs(msg));
 		}
+		if (args[0] === 'eval' && (<any> this.bot.config).owner.includes(message.author.id))
+			return this.bot.commands.get('docs:eval')
+				.action(message, args, mentions, original.replace(/.+eval /, ''));
+
 		let name: string = args.join(' ').toLowerCase()
 			.replace(/[\.#\,\/ ]/g, '.').replace(/\(\)/, '').replace(/\.+/, '.');
 		let doc: Class | Method | Property | Typedef = (<DocBot> this.bot).docs.all.get(name);

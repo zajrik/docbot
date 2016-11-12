@@ -30,9 +30,9 @@ export default class Property
 		this.type = type || '';
 		this.access = access || '';
 		this.virtual = virtual || false;
-		this.url = this.url = `${Constants.endpoints.yamdbf}/${this.memberOf}.html#${this.name}`;
-		this.string = `\`${this.memberOf}.${this.name}\`\n\n${this.description}\n\n`
-			+ `**type:** \`${this.type}\`\n\n**Docs:** ${this.url}`;
+		this.url = this.url = `${Constants.endpoints.yamdbf}/${memberOf}.html#${name}`;
+		this.string = `\`${memberOf}.${name}\`\n\n${description}\n\n`
+			+ `**type:** \`${type}\`\n\n**Docs:** ${this.url}`;
 	}
 
 	public toString(): string
