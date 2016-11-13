@@ -5,11 +5,11 @@ import DocBot from './lib/bot/DocBot';
 const config: any = require('./config.json');
 
 const bot: DocBot = new DocBot({
-	name: 'DocBot',
+	name: 'YAMDBF Docs',
 	token: config.token,
 	config: config,
 	version: '2.0.0',
-	statusText: 'Try @mention help',
+	statusText: 'docs: help',
 	commandsDir: path.join(__dirname, 'commands'),
 	disableBase: [
 		'disablegroup',
