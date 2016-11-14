@@ -35,3 +35,4 @@ bot.docs.loadDocs()
 	.catch(console.error);
 
 bot.on('ready', () => console.log('\u0007'));
+bot.on('disconnect', () => process.exit());
