@@ -3,7 +3,7 @@ import Param from './Param';
 import Property from './Property';
 import Method from './Method';
 import Constants from '../util/Constants';
-import { Collection } from 'discord.js';
+import { Collection, RichEmbed } from 'discord.js';
 
 /**
  * Represents a documented class
@@ -18,6 +18,7 @@ export default class Class
 	public methods: Collection<string, Method>;
 	public url: string;
 	public string: string;
+	public embed: RichEmbed;
 
 	public constructor (name: string,
 						description: string,
@@ -42,6 +43,22 @@ export default class Class
 				`${a.name}()`).join('`, `')}\`\n\n` : ''}`
 			+ `**Docs:** ${this.url}\n\n`
 			+ `Use \`docs: ${name}.<property|method>\` for more information`;
+
+		this.embed = new RichEmbed()
+			.setColor(11854048)
+			.setDescription(`**${name}:** \`new ${name}(${parameters.map(a => a.name).join(', ')})\``)
+			.addField('Parameters', `${parameters.size > 0 ? parameters.map(a =>
+				a.toString()).join('\n') + '\n' : 'none'}`)
+			.addField('Description', description);
+
+		if (properties.size > 0) this.embed.addField('Properties', `${properties.map(a =>
+				`[\`${a.name}\`](${this.url}#${a.name})`).join(', ')}`);
+
+		if (methods.size > 0) this.embed.addField('Methods', `${methods.map(a =>
+				`[\`${a.name}()\`](${this.url}#${a.name})`).join(', ')}`);
+
+		this.embed
+			.addField('Docs link', `${this.url}\n\nUse \`docs: ${name}.<property|method>\` for more information`);
 	}
 
 	public toString(): string

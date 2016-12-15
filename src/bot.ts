@@ -10,6 +10,7 @@ const bot: DocBot = new DocBot({
 	config: config,
 	version: '2.0.0',
 	statusText: 'docs: help',
+	readyText: 'Ready!\u0007',
 	commandsDir: path.join(__dirname, 'commands'),
 	disableBase: [
 		'disablegroup',
@@ -34,5 +35,4 @@ bot.docs.loadDocs()
 	.then(() => bot.start())
 	.catch(console.error);
 
-bot.on('ready', () => console.log('\u0007'));
-bot.on('disconnect', () => process.exit());
+bot.on('disconnect', () => process.exit(100));
