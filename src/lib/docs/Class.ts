@@ -55,7 +55,8 @@ export default class Class
 				`[\`${a.name}\`](${this.url}#${a.name})`).join(', ')}`);
 
 		if (methods.size > 0) this.embed.addField('Methods', `${methods.map(a =>
-				`[\`${a.name}()\`](${this.url}#${a.name})`).join(', ')}`);
+				`\`${a.name}()\``).join(', ')}`);
+				// `[\`${a.name}()\`](${this.url}#${a.name})`).join(', ')}`);
 
 		this.embed
 			.addField('Docs link', `${this.url}\n\nUse \`docs: ${name}.<property|method>\` for more information`);
